@@ -29,6 +29,7 @@ model Credential {
   userId     Int
   user       User @relation(fields: [userId], references: [id])
 
+  @@unique([userId, title])
   @@map("credentials")
 }
 
@@ -38,6 +39,8 @@ model Note {
   note       String
   userId     Int
   user       User @relation(fields: [userId], references: [id])
+
+  @@unique([userId, title])
   @@map("notes")
 }
 
@@ -54,6 +57,7 @@ model Card {
   userId      Int
   user       User @relation(fields: [userId], references: [id])
 
+  @@unique([userId, title])
   @@map("cards")
 }
 
